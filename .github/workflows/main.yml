@@ -18,3 +18,12 @@ jobs:
     - name: value error
       run: |
        python raise ValueError('A very specific bad thing happened.')
+       
+    - name: send slack notifiction
+      uses: ravsamhq/notify-slack-action@v1
+      if: always()
+      with:
+        status: ${{ job.status }} 
+        notify_when: 'failure'
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
