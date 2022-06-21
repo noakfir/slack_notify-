@@ -1,0 +1,20 @@
+name: send slack when fails
+
+on: workflow_dispatch
+
+jobs: 
+  
+  fails_and_slack:
+
+    runs-on: ubuntu-latest
+
+    steps: 
+
+    - name: Setup Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.x'
+
+    - name: value error
+      run: |
+       python raise ValueError('A very specific bad thing happened.')
