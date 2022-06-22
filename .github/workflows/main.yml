@@ -15,9 +15,9 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name: value error
-      run: |
-       python raise ValueError('A very specific bad thing happened.')
+   # - name: value error
+     # run: |
+      # python raise ValueError('A very specific bad thing happened.')
        
     - name: send slack notifiction
       uses: ravsamhq/notify-slack-action@v1
